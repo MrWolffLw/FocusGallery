@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Photo;
 use App\Repository\CategoryRepository;
 use App\Repository\PhotoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,5 +29,6 @@ final class HomeController extends AbstractController
         ]);
         
     }
+    
    
 }

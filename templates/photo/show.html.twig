@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Focus Gallery
+{% endblock %}
+
+
+{% block body %}
+
+<img src="{{ asset('uploads/images/' ~ photo.imageName) }}" alt="{{ photo.titleFr }}">
+<p> {{photo.descriptionFr}} </p>
+
+{% endblock %}

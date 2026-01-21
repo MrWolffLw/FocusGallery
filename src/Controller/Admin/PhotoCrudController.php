@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -29,8 +30,8 @@ class PhotoCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('titleFr'),
             TextField::new('titleEn'),
-            TextEditorField::new('descriptionFr'),
-            TextEditorField::new('descriptionEn'),
+            TextareaField::new('descriptionFr'),
+            TextAreaField::new('descriptionEn'),
             ImageField::new('imageName')
                   // Dossier serveur (chemin réel, relatif à /public)
             ->setUploadDir('public/uploads/images')

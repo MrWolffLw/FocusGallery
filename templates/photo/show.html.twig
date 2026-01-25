@@ -5,11 +5,75 @@
 
 
 {% block body %}
+<style>
+.titre-pres {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-size: 50px;
+}
 
-<h1>{{photo.titleFr}}</h1>
+.container-pres{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-pres {
+    border-radius: 20px;
+    margin: 10px;
+    height: 200px;
+
     
+}
+.parag-pres {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.infos-pres {
+   width: 600px;
+    margin: 30px;
+}
+.card-pres {
+    display: flex;
+    flex-direction: column;
+    background-color: #efefef;
+    border-radius: 20px;
+    padding: 10px;
+}
+.card-infos {
+     margin: 0 auto;
+    padding: 5px;
+    font-size: 20px;
+}
 
-<img src="{{ asset('uploads/images/' ~ photo.imageName) }}" alt="{{ photo.titleFr }}">
-<p> {{photo.descriptionFr}} </p>
+.cv {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    border-radius: 15px;
+    border: none;
+    background-color: #efefef;
+    width: 200px;
+    height: 40px;
+}
+</style>
+
+<h1 class="titre-pres" >{{photo.titleFr}}</h1>
+    
+<div class="container-pres">
+<article class="card-pres">
+<img src="{{ asset('uploads/images/' ~ photo.imageName) }}" alt="{{ photo.titleFr }}" class="img-pres">
+<p class="card-infos">Pélisson - Cédric</p>
+<p class="card-infos">Développeur Web</p>
+</article>
+</div>
+<div class="parag-pres">
+<p class="infos-pres" > {{photo.descriptionFr}} </p>
+</div>
+
+<a href="/cv"><button class="cv">Voir mon CV </button></a>
+
 
 {% endblock %}

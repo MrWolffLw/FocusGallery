@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Mon - CV {% endblock %}
+
+
+
+
+
+{% block body %}
+
+
+
+<a href="/photo/18" class"back-to" style="display: flex; justify-content: center; text-decoration: none; color: white; margin-right: 30px; width: 100%; background-color: black; padding: 10px; font-size: 25px;"> Retour </a>
+
+<embed src="{{ asset('uploads/images/cedric.pdf') }}" type="application/pdf" width="100%" height="600px">
+
+{% endblock %}

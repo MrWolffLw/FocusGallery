@@ -18,13 +18,13 @@ class Photo
     #[ORM\Column(length: 255)]
     private ?string $titleFr = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $titleEn = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $descriptionFr = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $descriptionEn = null;
 
     #[ORM\Column(length: 255)]
@@ -34,8 +34,14 @@ class Photo
     private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'photos')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Category $category = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $lien = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $titreLien = null;
 
     
 
@@ -125,6 +131,30 @@ class Photo
     public function setCategory(?category $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getLien(): ?string
+    {
+        return $this->lien;
+    }
+
+    public function setLien(?string $lien): static
+    {
+        $this->lien = $lien;
+
+        return $this;
+    }
+
+    public function getTitreLien(): ?string
+    {
+        return $this->titreLien;
+    }
+
+    public function setTitreLien(?string $titreLien): static
+    {
+        $this->titreLien = $titreLien;
 
         return $this;
     }

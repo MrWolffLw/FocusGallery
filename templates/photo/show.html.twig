@@ -5,75 +5,88 @@
 
 
 {% block body %}
-<style>
-.titre-pres {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    font-size: 50px;
-}
+	<style>
+		.titre-pres {
+			display: flex;
+			justify-content: center;
+			padding: 20px;
+			font-size: 50px;
+            color: white;
+		}
 
-.container-pres{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.img-pres {
-    border-radius: 20px;
-    margin: 10px;
-    height: 200px;
+		.container-pres {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.img-pres {
+			border-radius: 20px;
+			margin: 10px;
+			height: 200px;
 
-    
-}
-.parag-pres {
-    display: flex;
-    justify-self: center;
-    align-items: center;
-}
-.infos-pres {
-   width: 600px;
-    margin: 30px;
-}
-.card-pres {
-    display: flex;
-    flex-direction: column;
-    background-color: #efefef;
-    border-radius: 20px;
-    padding: 10px;
-}
-.card-infos {
-     margin: 0 auto;
-    padding: 5px;
-    font-size: 20px;
-}
 
-.cv {
-    display: flex;
-    justify-content: center;
-    justify-self: center;
-    align-items: center;
-    border-radius: 15px;
-    border: none;
-    background-color: #efefef;
-    width: 200px;
-    height: 40px;
-}
-</style>
+		}
+		.parag-pres {
+			display: flex;
+			justify-self: center;
+			align-items: center;
+		}
+		.infos-pres {
+			width: 600px;
+			margin: 30px;
+		}
+		.card-pres {
+			display: flex;
+			flex-direction: column;
+			background-color: #efefef;
+			border-radius: 20px;
+			padding: 10px;
+            width: 320px;
+            margin: 0 auto;
+		}
+		/* .card-infos {
+			margin: 0 auto;
+			padding: 5px;
+			font-size: 20px;
+		} */
 
-<h1 class="titre-pres" >{{photo.titleFr}}</h1>
-    
-<div class="container-pres">
-<article class="card-pres">
-<img src="{{ asset('uploads/images/' ~ photo.imageName) }}" alt="{{ photo.titleFr }}" class="img-pres">
-<p class="card-infos">Pélisson - Cédric</p>
-<p class="card-infos">Développeur Web</p>
-</article>
-</div>
-<div class="parag-pres">
-<p class="infos-pres" > {{photo.descriptionFr}} </p>
-</div>
+		.cv {
+			display: flex;
+			justify-content: center;
+			justify-self: center;
+			align-items: center;
+			border-radius: 15px;
+			border: none;
+			background-color: #efefef;
+			width: 200px;
+			height: 40px;
+            margin: 30px;
+		}
+	</style>
 
-<a href="/cv"><button class="cv">Voir mon CV </button></a>
+	<h1 class="titre-pres">{{photo.titleFr}}</h1>
+
+	<article class="card-pres">
+		<div class="container-pres">
+			<img src="{{ asset('uploads/images/' ~ photo.imageName) }}" alt="{{ photo.titleFr }}" class="img-pres">
+		</div>
+		<div class="parag-pres">
+			<p class="infos-pres">
+				{{photo.descriptionFr}}
+			</p>
+		</div>
+	</article>
+
+	{% if photo.id == 1 %}
+		<a href="{{ asset('uploads/images/cedric.pdf') }}" target="_blank" rel="noopener noreferrer" class="cv">
+			Voir le CV
+		</a>
+
+	{% else %}
+		<a href="{{ photo.lien }}" target="_blank" rel="noopener noreferrer">
+			<button class="cv">{{ photo.titreLien }}</button>
+		</a>
+	{% endif %}
 
 
 {% endblock %}

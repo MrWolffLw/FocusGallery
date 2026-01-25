@@ -15,7 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-
+use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
 
 class PhotoCrudController extends AbstractCrudController
 {
@@ -46,6 +46,12 @@ class PhotoCrudController extends AbstractCrudController
             ->setFormTypeOptions($pageName == Crud::PAGE_EDIT ? ['allow_delete' => false] : []),
             DateTimeField::new('updatedAt')->hideOnForm(),
             AssociationField::new('category')->autocomplete(),
+            UrlField::new('lien')
+            ->setLabel('Lien externe du sujet')
+            ->setRequired(false),
+            TextField::new('titreLien')
+            ->setLabel('Texte du lien')
+            ->setRequired(false),
          
 
         ];

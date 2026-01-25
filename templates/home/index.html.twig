@@ -20,16 +20,17 @@
 			font-size: 15px;
 			height: 30px;
 			width: 100px;
-			border: 2px solid black;
+			border: 1px solid black;
 			border-radius: 10px;
 			text-decoration: none;
 			color: black;
 			margin: 10px;
+			
 		}
 		img {
 			
 			width: 100%;
-			height: 100px;
+			height: 300px;
 			object-fit: cover;
 			border-radius: 15px;
 
@@ -68,23 +69,35 @@
 		}
 		.cards {
 			border-radius: 10px;
-			background-image: linear-gradient(#e2e2e2ff, #fefefe);
-			box-shadow: 15px 15px 25px -25px black;
+			background-color: #ffff;
+			box-shadow: 15px 15px 25px -30px black;
+			/* border: 0.1px solid black; */
 		}
 		p {
 			margin: 10px;
 		}
 		article {
-			margin: 0 auto;
-			height: 300px;
+			
+			border-radius: 10px;
+			height: 100%;
+			padding: 10px;
+		}
+		.img-titre{
+			font-size: 35px;
+		}
+		.img-titre, .img-cat{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		
 		}
 	</style>
 
-	<h1 class="titre">Découvrez nos clichés</h1>
+	<h1 class="titre">Mes projets</h1>
 	<div class="container">
 		<a class="cat" href="{{ path('index') }}">Tout</a>
 		{% for category in categories %}
-			<a class="cat" href="{{path('index', {id: category.id})}}">{{category.nameFr}}</a>
+			<a class="cat" href="{{path('index', {id: category.id})}}" style="background-color:{{category.color}}">{{category.nameFr}}</a>
 		{% endfor %}
 	</div>
 	<div class="img">
@@ -92,13 +105,13 @@
 			<div class="cards">
 				<article>
 					<a href="{{path ('show', {id: photo.id})}}"><img  src="{{ asset('uploads/images/' ~ photo.imageName) }}" alt="{{ photo.titleFr }}"></a>
-					<p>{{photo.titleFr}}</p>
-					<span> {{photo.category}} </span>
+					
+					<p class="img-titre">{{photo.titleFr}} <span class="cat"  > {{photo.category}} </span></p>
 				</article>
 				
 			</div>
-
 		{% endfor %}
+
 	</div>
 
 

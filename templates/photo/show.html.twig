@@ -6,6 +6,9 @@
 
 {% block body %}
 
+<h1>{{photo.titleFr}}</h1>
+    
+
 <img src="{{ asset('uploads/images/' ~ photo.imageName) }}" alt="{{ photo.titleFr }}">
 <p> {{photo.descriptionFr}} </p>
 

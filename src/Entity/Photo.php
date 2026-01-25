@@ -37,6 +37,8 @@ class Photo
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
+    
+
 
     public function getId(): ?int
     {
@@ -126,6 +128,8 @@ class Photo
 
         return $this;
     }
+
+  
 
 
     

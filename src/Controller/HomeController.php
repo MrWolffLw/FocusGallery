@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class HomeController extends AbstractController
 {
-    #[Route('/{id}', name: 'index')]
+    #[Route('/{id<\d+>}', name: 'index')]
     public function index(CategoryRepository $repo,PhotoRepository $PhotoRepository, $id=null): Response
     {
        if ($id) {
